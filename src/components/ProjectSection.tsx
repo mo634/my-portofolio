@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Project = ({title, projectImage, githubLink, description, livePreviewLink, technologiesUsed }) => {
+const Project = ({title, projectImage, githubLink, description, livePreviewLink, technologiesUsed }:ProjectProps) => {
   return (
     <section className="h-fit bg-white dark:bg-gray-800 rounded-lg shadow-md">
       {/*start top section  */}
@@ -18,8 +18,8 @@ const Project = ({title, projectImage, githubLink, description, livePreviewLink,
       {/* start bottom section */}
       <div className="p-6">
         
-        <p className="uppercase tracking-wide text-sm text-primary  font-semibold">{title}</p>
-        <p className="mt-2 text-gray-700 dark:text-gray-300">{description}</p>
+        <p className="uppercase tracking-wide text-sm text-[#020617]  font-semibold">{title}</p>
+        <p className="mt-2 text-[#334155] dark:text-gray-300">{description}</p>
 
 
         <div className="mt-4">
