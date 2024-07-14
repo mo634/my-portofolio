@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import ProjectSection from '@/components/ProjectSection';
 import projectImage from '/public//images/projectImage.png';
 const Projects = () => {
-    const [projectsData, setProjectsData] = useState([]);
+    const [projectsData, setProjectsData] = useState<ProjectProps[]>([]);
 
     useEffect(() => {
         const fetchProjects = async () => {
