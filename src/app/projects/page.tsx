@@ -46,7 +46,7 @@ const Projects = () => {
         },
     ];
     return (
-        <section className='  flex h-screen flex-wrap gap-4'>
+        <section className=' bg-red-500 p-4 flex h-screen flex-wrap gap-2'>
 
 
             {projectsData.map((project, index) => (

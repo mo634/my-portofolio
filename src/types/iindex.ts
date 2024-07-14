@@ -1,6 +1,6 @@
 declare interface ProjectProps {
     title: string;
-    projectImage: string;
+    projectImage: any;
     githubLink: string;
     description: string;
     livePreviewLink: string;
