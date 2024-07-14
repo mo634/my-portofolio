@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Project = ({title, projectImage, githubLink, description, livePreviewLink, technologiesUsed }:ProjectProps) => {
   return (
-    <section className="h-fit bg-white dark:bg-gray-800 rounded-lg shadow-md">
+    <section className="h-fit w-[24%] bg-white dark:bg-gray-800 rounded-lg shadow-md">
       {/*start top section  */}
       <Image
         className="object-cover"
