@@ -1,4 +1,5 @@
 declare interface ProjectProps {
+  projectId: string;
   title: string;
   projectImage: any;
   githubLink: string;
