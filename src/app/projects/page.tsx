@@ -41,7 +41,7 @@ const Projects = () => {
                 {projectsData.map((project, index) => (
                     <ProjectSection
                         key={index}
-                        projectId={project?._id}
+                       _id={project?._id}
                         title={project?.title}
                         projectImage={projectImage}
                         githubLink={project?.githubLink}

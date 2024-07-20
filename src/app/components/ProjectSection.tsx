@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { IoMdAdd } from "react-icons/io";
 import { FaGithub } from "react-icons/fa";
 import { Button } from './ui/button';
-const Project = ({_id, title, projectImage, githubLink, description, livePreviewLink, technologiesUsed }: ProjectProps) => {
+import { AiFillDelete } from "react-icons/ai";
+const Project = ({ _id, title, projectImage, githubLink, description, livePreviewLink, technologiesUsed }: ProjectProps) => {
 
   const isAdmin = useAppSelector((state: RootState) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
 
@@ -54,8 +55,12 @@ const Project = ({_id, title, projectImage, githubLink, description, livePreview
 
 
           <Link href={githubLink}>
-            <FaGithub className='text-xl' />
+            <FaGithub className='text-2xl hover:scale-150 transition duration-300' />
           </Link>
+
+          <div className=" text-2xl hover:text-red-700 hover:scale-150 transition duration-300 cursor-pointer">
+            <AiFillDelete />
+          </div>
 
 
         </div>
