@@ -1,5 +1,5 @@
 // components/Project.js
-import { useAppSelector } from '@/store';
+import { RootState, useAppSelector } from '@/store';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoMdAdd } from "react-icons/io";
@@ -7,7 +7,7 @@ import { FaGithub } from "react-icons/fa";
 import { Button } from './ui/button';
 const Project = ({ title, projectImage, githubLink, description, livePreviewLink, technologiesUsed }: ProjectProps) => {
 
-  const isAdmin = useAppSelector(state => state.admin.isAdmin);
+  const isAdmin = useAppSelector((state: RootState) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
 
   console.log(isAdmin)
   return (

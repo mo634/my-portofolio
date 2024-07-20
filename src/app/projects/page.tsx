@@ -4,14 +4,14 @@ import React, { useEffect, useState } from 'react';
 
 import projectImage from '/public//images/projectImage.png';
 import { IoMdAdd } from 'react-icons/io';
-import { useAppSelector } from '@/store';
+import { RootState, useAppSelector } from '@/store';
 import  ProjectSection  from '@/app/components/ProjectSection';
 import { useRouter } from 'next/navigation';
 const Projects = () => {
     const [projectsData, setProjectsData] = useState<ProjectProps[]>([]);
     const [createProject, setCreateProject] = useState(false)
     const router = useRouter()
-    const isAdmin = useAppSelector(state => state.admin.isAdmin);
+    const isAdmin = useAppSelector((state: RootState) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
     const handleCreateProject = () => {
 
         console.log("clicked")
