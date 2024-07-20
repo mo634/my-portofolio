@@ -4,7 +4,9 @@ import persistReducer from 'redux-persist/es/persistReducer';
 import persistStore from 'redux-persist/es/persistStore';
 import storage from 'redux-persist/lib/storage';
 
-
+interface AdminState {
+  isAdmin: boolean;
+}
 
 const initialState: AdminState = {
   isAdmin: false,
@@ -34,7 +36,6 @@ const store = configureStore({
     admin: persistedReducer,
   },
 });
-
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

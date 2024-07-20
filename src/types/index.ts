@@ -6,7 +6,3 @@ declare interface ProjectProps {
   livePreviewLink: string;
   technologiesUsed: string[];
 }
-
-interface AdminState {
-  isAdmin: boolean;
-}
