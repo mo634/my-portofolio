@@ -7,7 +7,7 @@ import { FaGithub } from "react-icons/fa";
 import { Button } from './ui/button';
 import { AiFillDelete } from "react-icons/ai";
 import { useState } from 'react';
-const Project = ({ _id,setProjectsData, title, projectImage, githubLink, description, livePreviewLink, technologiesUsed }: ProjectProps) => {
+const Project = ({ _id, setProjectsData, title, projectImage, githubLink, description, livePreviewLink, technologiesUsed }: ProjectProps) => {
 
   const isAdmin = useAppSelector((state) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
   const [isLoding, setIsLoding] = useState(false)
@@ -30,7 +30,7 @@ const Project = ({ _id,setProjectsData, title, projectImage, githubLink, descrip
 
     } catch (error) {
       console.log("error while deleting project", error)
-    }finally{
+    } finally {
       setIsLoding(false)
     }
 
@@ -81,14 +81,18 @@ const Project = ({ _id,setProjectsData, title, projectImage, githubLink, descrip
           <Link href={githubLink}>
             <FaGithub className='text-2xl hover:scale-150 transition duration-300' />
           </Link>
+          {
+            isAdmin && (
 
-          <div
-            onClick={handleRemoveProject}
+              <div
+                onClick={handleRemoveProject}
 
-            className=" text-2xl hover:text-red-700 hover:scale-150 transition duration-300 cursor-pointer">
-            <AiFillDelete />
-          </div>
+                className=" text-2xl hover:text-red-700 hover:scale-150 transition duration-300 cursor-pointer">
+                <AiFillDelete />
+              </div>
 
+            )
+          }
 
         </div>
       </div>
