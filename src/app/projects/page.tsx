@@ -1,11 +1,23 @@
 // pages/projects/page.js
 "use client"
 import React, { useEffect, useState } from 'react';
-import ProjectSection from '@/components/ProjectSection';
+
 import projectImage from '/public//images/projectImage.png';
+import { IoMdAdd } from 'react-icons/io';
+import { useAppSelector } from '@/store';
+import  ProjectSection  from '@/app/components/ProjectSection';
+import { useRouter } from 'next/navigation';
 const Projects = () => {
     const [projectsData, setProjectsData] = useState<ProjectProps[]>([]);
+    const [createProject, setCreateProject] = useState(false)
+    const router = useRouter()
+    const isAdmin = useAppSelector(state => state.admin.isAdmin);
+    const handleCreateProject = () => {
 
+        console.log("clicked")
+
+
+    }
     useEffect(() => {
         const fetchProjects = async () => {
             try {
@@ -21,11 +33,11 @@ const Projects = () => {
     }, []);
 
     return (
-        <section className="p-4 flex min-h-screen flex-wrap gap-2 justify-center">
+        <section className="p-4 flex min-h-screen  flex-wrap gap-2">
             {projectsData.length === 0 ? (
                 <p>Loading...</p>
-            ) : (
-                projectsData.map((project, index) => (
+            ) : <>
+                {projectsData.map((project, index) => (
                     <ProjectSection
                         key={index}
                         title={project?.title}
@@ -35,8 +47,12 @@ const Projects = () => {
                         livePreviewLink={project?.livePreviewLink}
                         technologiesUsed={project?.technologiesUsed}
                     />
-                ))
-            )}
+                )
+                )
+                }
+                
+            </>
+            }
         </section>
     );
 };
