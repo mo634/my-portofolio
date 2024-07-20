@@ -6,4 +6,5 @@ declare interface ProjectProps {
   description: string;
   livePreviewLink: string;
   technologiesUsed: string[];
+  setProjectsData: React.Dispatch<React.SetStateAction<ProjectProps[]>>;
 }

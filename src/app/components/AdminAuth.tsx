@@ -9,7 +9,7 @@ const AdminAuth = () => {
     // define states
     const router = useRouter();
     const dispatch = useAppDispatch();
-    const isAdmin = useAppSelector((state: RootState) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
+    const isAdmin = useAppSelector((state) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
     const [password, setPassword] = useState('');
     const adminPassword = process.env.ADMIN_PASSWORD;
 

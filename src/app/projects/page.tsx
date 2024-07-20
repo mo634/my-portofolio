@@ -12,12 +12,6 @@ const Projects = () => {
     const [createProject, setCreateProject] = useState(false)
     const router = useRouter()
     const isAdmin = useAppSelector((state) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
-    const handleCreateProject = () => {
-
-        console.log("clicked")
-
-
-    }
     useEffect(() => {
         const fetchProjects = async () => {
             try {
@@ -48,6 +42,7 @@ const Projects = () => {
                         description={project?.description}
                         livePreviewLink={project?.livePreviewLink}
                         technologiesUsed={project?.technologiesUsed}
+                        setProjectsData={setProjectsData} // Pass setProjectsData here
                     />
                 )
                 )
