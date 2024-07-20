@@ -1,5 +1,5 @@
 // components/Project.js
-import { RootState, useAppSelector } from '@/store';
+import {  useAppSelector } from '@/store/index.js';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoMdAdd } from "react-icons/io";
@@ -8,9 +8,11 @@ import { Button } from './ui/button';
 import { AiFillDelete } from "react-icons/ai";
 const Project = ({ _id, title, projectImage, githubLink, description, livePreviewLink, technologiesUsed }: ProjectProps) => {
 
-  const isAdmin = useAppSelector((state: RootState) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
+  const isAdmin = useAppSelector((state) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
 
-  console.log(_id)
+  const handleRemoveProject = async () => {
+    console.log("clicked")
+  }
   return (
     <section className="h-fit bg-secondary flex flex-col justify-between  w-[24%] dark:bg-gray-800 rounded-lg ">
       {/*start top section  */}
@@ -58,7 +60,10 @@ const Project = ({ _id, title, projectImage, githubLink, description, livePrevie
             <FaGithub className='text-2xl hover:scale-150 transition duration-300' />
           </Link>
 
-          <div className=" text-2xl hover:text-red-700 hover:scale-150 transition duration-300 cursor-pointer">
+          <div 
+          onClick={handleRemoveProject}
+
+          className=" text-2xl hover:text-red-700 hover:scale-150 transition duration-300 cursor-pointer">
             <AiFillDelete />
           </div>
 

@@ -1,9 +1,9 @@
 "use client";
 import { validateAdminPassword } from "@/app/actions/validateAdmin.actions";
-import { setAdmin, useAppDispatch, useAppSelector } from "@/store";
+import { setAdmin, useAppDispatch, useAppSelector } from "@/store/index.js";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { RootState } from "@/store"; // Import the RootState type
+
 
 const AdminAuth = () => {
     // define states

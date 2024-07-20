@@ -2,13 +2,13 @@
 import React, { useState } from 'react'
 import { Button } from './ui/button'
 import { IoMdAdd } from 'react-icons/io'
-import { useAppSelector } from '@/store';
+import { useAppSelector } from '@/store/index.js';
 import { useRouter } from 'next/navigation';
-import { RootState } from '@/store';
+
 
 const CreateNewProject = () => {
     const router = useRouter()
-    const isAdmin = useAppSelector((state: RootState) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
+    const isAdmin = useAppSelector((state) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
 
     const [createProject, setCreateProject] = useState(false)
     return (
