@@ -34,10 +34,10 @@ const Project = ({ title, projectImage, githubLink, description, livePreviewLink
 
           <ul className=" flex gap-2 truncate">
             {technologiesUsed?.map((tech, index) => (
-              <div  className=' liquid-wrapper'>
-              <span>{index + 1}.{tech}</span>
-              <div className="liquid"></div>
-            </div>
+              <div key={index} className=' liquid-wrapper'>
+                <span>{index + 1}.{tech}</span>
+                <div className="liquid"></div>
+              </div>
             ))}
           </ul>
 
