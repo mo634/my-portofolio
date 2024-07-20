@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
-import ReduxProvider from "./components/ReduxProvide";
+import ReduxProvider from "./components/ReduxProvide.js";
 
 
 

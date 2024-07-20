@@ -5,11 +5,11 @@ import Link from 'next/link';
 import { IoMdAdd } from "react-icons/io";
 import { FaGithub } from "react-icons/fa";
 import { Button } from './ui/button';
-const Project = ({projectId, title, projectImage, githubLink, description, livePreviewLink, technologiesUsed }: ProjectProps) => {
+const Project = ({_id, title, projectImage, githubLink, description, livePreviewLink, technologiesUsed }: ProjectProps) => {
 
   const isAdmin = useAppSelector((state: RootState) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
 
-  console.log(projectId)
+  console.log(_id)
   return (
     <section className="h-fit bg-secondary flex flex-col justify-between  w-[24%] dark:bg-gray-800 rounded-lg ">
       {/*start top section  */}
