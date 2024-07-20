@@ -1,32 +1,30 @@
-"use client"
+"use client";
 import { validateAdminPassword } from "@/app/actions/validateAdmin.actions";
 import { setAdmin, useAppDispatch, useAppSelector } from "@/store";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { RootState } from "@/store"; // Import the RootState type
 
 const AdminAuth = () => {
-
-    // deifine states
+    // define states
     const router = useRouter();
     const dispatch = useAppDispatch();
-    const isAdmin = useAppSelector(state => state.admin.isAdmin);
+    const isAdmin = useAppSelector((state: RootState) => state.admin.isAdmin);
     const [password, setPassword] = useState('');
     const adminPassword = process.env.ADMIN_PASSWORD;
 
     // define functions
-    const handleAdminClick =async () => {
-        const isPasswordValid =await validateAdminPassword(password);
-       
+    const handleAdminClick = async () => {
+        const isPasswordValid = await validateAdminPassword(password);
+
         if (isPasswordValid) {
             dispatch(setAdmin(true));
-            router.push('/welcome')
+            router.push('/welcome');
         } else {
             alert('Invalid password');
-            router.push('/')
+            router.push('/');
         }
-
     };
-
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
@@ -48,4 +46,4 @@ const AdminAuth = () => {
     );
 }
 
-export default AdminAuth
+export default AdminAuth;
