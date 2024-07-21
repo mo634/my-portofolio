@@ -1,9 +1,13 @@
 // components/Header.js
+"use client"
 import Link from 'next/link';
 import CreateNewProject from './CreateProject';
+import AdminOptions from './AdminOptions';
+import { useAppSelector } from '@/store';
 
 
 const Header = () => {
+  const isAdmin = useAppSelector((state) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
   return (
     <header className="bg-primary p-4">
       <nav className="flex justify-around items-center">
@@ -19,8 +23,8 @@ const Header = () => {
         <Link href="/about" className="link-style">
           About
         </Link>
-        <span>
-          <CreateNewProject />
+        <span className='text-white'>
+          {isAdmin && <AdminOptions />}
         </span>
       </nav>
     </header>
