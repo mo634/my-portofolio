@@ -1,12 +1,10 @@
 "use client"
 
+import { ChangeEvent, useState } from "react";
 
-
-import { useState } from "react";
-
-import projectImage from "/public/images/fill-project-info.jpg"
+import createProjectImage from "/public/images/fill-project-info.jpg"
 import Image from "next/image";
-
+import axios from "axios";
 const CreateProject = () => {
     // states 
     const [title, setTitle] = useState('');
@@ -14,7 +12,10 @@ const CreateProject = () => {
     const [description, setDescription] = useState('');
     const [livePreviewLink, setLivePreviewLink] = useState('');
     const [technologiesUsed, setTechnologiesUsed] = useState<string[]>([]);
+    const [projectImage, setProjectImage] = useState("")
+    const [projectImageId, setProjectImageId] = useState("")
     const [isLoading, setIsLoading] = useState(false)
+    const [image, setImage] = useState<File | null>(null)
 
     // functions
     const handleSubmit = async (event: React.FormEvent) => {
@@ -26,6 +27,8 @@ const CreateProject = () => {
             description,
             livePreviewLink,
             technologiesUsed,
+            projectImage,
+            projectImageId
         };
         try {
             setIsLoading(true)
@@ -48,23 +51,55 @@ const CreateProject = () => {
                 setDescription('');
                 setLivePreviewLink('');
                 setTechnologiesUsed([]);
+                setProjectImage('');
+                setProjectImageId('');
             } else {
                 alert(`Error: ${data.error}`);
             }
 
-        } 
+        }
         catch (error) {
             console.log("error while creating project", error);
-        }finally{
+        } finally {
             setIsLoading(false)
         }
     };
+
+    const handleImageUploading = (e: ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files) {
+            setImage(e.target.files[0])
+        }
+    }
+
+    const handleSubmitImage = async (e: any) => {
+        e.preventDefault()
+        try {
+            if (!image) return
+
+            const formData = new FormData()
+            formData.append('image', image)
+            console.log("form data from frontend", formData)
+
+            const response = await axios.post('/api/upload-image', formData)
+
+            const data = await response.data
+
+            console.log("data from backend after complete calling api ",
+                data.data.secure_url
+            )
+
+            setProjectImage(data.data.secure_url)
+            setProjectImageId(data.data.public_id)
+        } catch (error) {
+            console.log("error while uploading image", error)
+        }
+    }
 
 
     return (
         <section className="flex px-2 py-10 justify-center gap-5">
             <div className="">
-                <Image src={projectImage} alt="Project Image" width={500} height={500}
+                <Image src={createProjectImage} alt="Project Image" width={500} height={500}
                     className="object-cover rounded-md  shadow-md"
                 />
             </div>
@@ -136,6 +171,17 @@ const CreateProject = () => {
                     />
                 </div>
                 <div>
+                    {/*start  upload project image  */}
+                    <div className="">
+                        <input type="file"
+                            onChange={handleImageUploading}
+                        />
+                        <button
+                            onClick={handleSubmitImage}
+                        >upload image </button>
+                    </div>
+                    {/*end   upload project image  */}
+
                     <button
                         type="submit"
                         className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

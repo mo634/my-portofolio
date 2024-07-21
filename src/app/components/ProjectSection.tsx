@@ -36,7 +36,7 @@ const Project = ({ _id, setProjectsData, title, projectImage, githubLink, descri
 
   }
   return (
-    <section className="h-fit bg-secondary flex flex-col justify-between  w-[24%] dark:bg-gray-800 rounded-lg ">
+    <section className="h-fit bg-secondary flex flex-col justify-between  w-[30%] dark:bg-gray-800 rounded-lg ">
       {/*start top section  */}
       <Image
         className="object-cover w-full"

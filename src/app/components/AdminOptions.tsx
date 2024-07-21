@@ -3,6 +3,7 @@ import { useAppSelector } from '@/store';
 import React, { useState } from 'react'
 import CreateNewProject from './CreateProject';
 import DeleteAllProjects from './DeleteAllProjects';
+import { MdArrowDropUp } from 'react-icons/md';
 
 const AdminOptions = () => {
     const isAdmin = useAppSelector((state) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
@@ -21,6 +22,8 @@ const AdminOptions = () => {
             {showAdminOptions && isAdmin && (
 
                 <div className=" top-8 left-0 absolute bg-secondary p-2 rounded-md">
+                    <MdArrowDropUp className='text-2xl  absolute top-[-14px] right-[50%] ' />
+
                     <p><CreateNewProject /></p>
 
                     <DeleteAllProjects />

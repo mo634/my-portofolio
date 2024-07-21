@@ -2,10 +2,10 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 
-import projectImage from '/public//images/projectImage.png';
+
 import { IoMdAdd } from 'react-icons/io';
-import {  useAppSelector } from '@/store/index.js';
-import  ProjectSection  from '@/app/components/ProjectSection';
+import { useAppSelector } from '@/store/index.js';
+import ProjectSection from '@/app/components/ProjectSection';
 import { useRouter } from 'next/navigation';
 const Projects = () => {
     const [projectsData, setProjectsData] = useState<ProjectProps[]>([]);
@@ -35,19 +35,20 @@ const Projects = () => {
                 {projectsData.map((project, index) => (
                     <ProjectSection
                         key={index}
-                       _id={project?._id}
+                        _id={project?._id}
                         title={project?.title}
-                        projectImage={projectImage}
+                        projectImage={project?.projectImage}
                         githubLink={project?.githubLink}
                         description={project?.description}
                         livePreviewLink={project?.livePreviewLink}
                         technologiesUsed={project?.technologiesUsed}
+
                         setProjectsData={setProjectsData} // Pass setProjectsData here
                     />
                 )
                 )
                 }
-                
+
             </>
             }
         </section>
