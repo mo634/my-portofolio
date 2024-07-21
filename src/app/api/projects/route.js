@@ -43,14 +43,23 @@ export async function DELETE(request) {
 
         const id = searchParams.get('id');
 
-        // Get the ID from the query parameters
-        const project = await Project.findByIdAndDelete(id);
-
-        if (!project) {
-            return NextResponse.json({ success: false, message: 'Project not found' });
+        // Get the ID from the query parameters and delete project 
+        if  (id) {
+            const project = await Project.findByIdAndDelete(id);
+            
+            if (!project) {
+                return NextResponse.json({ success: false, message: 'Project not found' });
+            }
+            
+            return NextResponse.json({ success: true, message: 'Project deleted successfully' });
+        }
+        // delete all projects if no id provided 
+        else{
+            const project = await Project.deleteMany();
+            return NextResponse.json({ success: true, message: 'Projects deleted successfully' });
         }
 
-        return NextResponse.json({ success: true, message: 'Project deleted successfully' });
+      
     } catch (error) {
         return NextResponse.json({ success: false, error: error.message });
     }
