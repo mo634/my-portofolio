@@ -1,10 +1,13 @@
 "use client"
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 
 import createProjectImage from "/public/images/fill-project-info.jpg"
 import Image from "next/image";
 import axios from "axios";
+import { RxButton } from "react-icons/rx";
+import { Button } from "../components/ui/button";
+import { FaUpload } from 'react-icons/fa';
 const CreateProject = () => {
     // states 
     const [title, setTitle] = useState('');
@@ -16,7 +19,8 @@ const CreateProject = () => {
     const [projectImageId, setProjectImageId] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const [image, setImage] = useState<File | null>(null)
-
+    const fileInputRef = useRef(null);
+    const [isImageUploaded, setIsImageUploaded] = useState("")
     // functions
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
@@ -53,6 +57,7 @@ const CreateProject = () => {
                 setTechnologiesUsed([]);
                 setProjectImage('');
                 setProjectImageId('');
+                setIsImageUploaded("");
             } else {
                 alert(`Error: ${data.error}`);
             }
@@ -69,11 +74,16 @@ const CreateProject = () => {
         if (e.target.files) {
             setImage(e.target.files[0])
         }
+        setIsImageUploaded("image uploaded successfully")
     }
+    const handleIconClick = () => {
+        fileInputRef.current?.click();
+    };
 
     const handleSubmitImage = async (e: any) => {
         e.preventDefault()
         try {
+            setIsLoading(true)
             if (!image) return
 
             const formData = new FormData()
@@ -92,6 +102,8 @@ const CreateProject = () => {
             setProjectImageId(data.data.public_id)
         } catch (error) {
             console.log("error while uploading image", error)
+        } finally {
+            setIsLoading(false)
         }
     }
 
@@ -172,13 +184,34 @@ const CreateProject = () => {
                 </div>
                 <div>
                     {/*start  upload project image  */}
-                    <div className="">
+                    <div className=" flex justify-between mb-3">
                         <input type="file"
+                            className="hidden"
+                            ref={fileInputRef}
                             onChange={handleImageUploading}
                         />
-                        <button
+                        <div className="cursor-pointer trnasation duration-500 hover:text-white flex items-center gap-2 border-blue-700 border-2 p-2 rounded-md hover:bg-blue-700 text-primary capitalize"
+                            onClick={handleIconClick}
+                        >
+                            <FaUpload
+
+                                className="text-2xl"
+                            />
+                            <p>
+                            {
+                                isImageUploaded?isImageUploaded :" select image for your project"
+                            }
+                            </p>
+                        </div>
+                        <Button
                             onClick={handleSubmitImage}
-                        >upload image </button>
+                            disabled={isLoading}
+                        >
+                            {
+                                isLoading ? "Loading..." : "Upload Image"
+                            }
+
+                        </Button>
                     </div>
                     {/*end   upload project image  */}
 
