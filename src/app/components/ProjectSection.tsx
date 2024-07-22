@@ -36,39 +36,47 @@ const Project = ({ _id, setProjectsData, title, projectImage, githubLink, descri
 
   }
   return (
-    <section className="h-fit bg-secondary flex flex-col justify-between  w-[30%] dark:bg-gray-800 rounded-lg ">
+    <section className="bg-secondary flex flex-col  overflow-hidden w-[30%] dark:bg-gray-800 rounded-lg min-h-[300px] max-h[500]
+      max-md:w-[100%]
+    ">
       {/*start top section  */}
       <Image
-        className="object-cover w-full"
+        className="
+        max-md:h-[200px]
+        cursor-pointer object-cover w-full max-h-[180px] hover:scale-125 hover:rotate-2 transition-all duration-500"
         src={projectImage}
         alt="Project Image"
         width={200}
-        height={150}
+        height={180}
       />
       {/* end top section */}
 
       {/* start bottom section */}
-      <div className="p-6 overflow-hidden">
+      <div className="p-6 overflow-hidden  h-full flex flex-col justify-between ">
 
-        <p className="uppercase tracking-wide text-sm text-primary  font-semibold">{title}</p>
-        <p className="mt-2 text-slate-500 text-sm  line-clamp-3">{description}</p>
+        <div className="">
+          <p className="uppercase tracking-wide text-sm text-primary  font-semibold">{title}</p>
+          <p className="mt-2 text-slate-500 text-sm  line-clamp-3">{description}</p>
 
 
-        <div className="mt-4">
-          <h4 className="text-lg font-semibold text-primary dark:text-gray-100">Technologies Used:</h4>
+          <div className="mt-4">
+            <h4 className="text-lg font-semibold text-primary dark:text-gray-100">Technologies Used:</h4>
 
-          <ul className=" flex gap-2 flex-wrap mt-2">
-            {technologiesUsed?.map((tech, index) => (
-              <div key={index} className=' liquid-wrapper'>
-                <span>{index + 1}.{tech}</span>
-                <div className="liquid"></div>
-              </div>
-            ))}
-          </ul>
+            <ul className=" flex gap-2 flex-wrap mt-2">
+              {technologiesUsed?.map((tech, index) => (
+                <div key={index} className=' liquid-wrapper  line-clamp-3'>
+                  <span>{index + 1}.{tech}</span>
+                  <div className="liquid"></div>
+                </div>
+              ))}
+            </ul>
 
+
+          </div>
 
         </div>
-        <div className="mt-4 flex justify-between items-center">
+
+        <div className="  mt-4 flex  justify-between items-center">
           <Link href={livePreviewLink}>
             <Button
               className='bg-blue-700 hover:bg-non hover:opacity-[0.9] transition-all duration-500'

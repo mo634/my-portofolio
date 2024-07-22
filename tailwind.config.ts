@@ -18,8 +18,10 @@ const config = {
       },
     },
     extend: {
+      fontSize: {
+        'responsive': 'clamp(1.5rem, 2.5vw, 3rem)', // Adjust the values as needed
+      },
       colors: {
-        
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
