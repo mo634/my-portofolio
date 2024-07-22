@@ -5,7 +5,7 @@ import { ChangeEvent, useRef, useState } from "react";
 import createProjectImage from "/public/images/fill-project-info.jpg"
 import Image from "next/image";
 import axios from "axios";
-import { RxButton } from "react-icons/rx";
+
 import { Button } from "../components/ui/button";
 import { FaUpload } from 'react-icons/fa';
 const CreateProject = () => {
@@ -19,7 +19,7 @@ const CreateProject = () => {
     const [projectImageId, setProjectImageId] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const [image, setImage] = useState<File | null>(null)
-    const fileInputRef = useRef(null);
+    const fileInputRef = useRef<HTMLInputElement>(null);
     const [isImageUploaded, setIsImageUploaded] = useState("")
     // functions
     const handleSubmit = async (event: React.FormEvent) => {
@@ -77,7 +77,9 @@ const CreateProject = () => {
         setIsImageUploaded("image uploaded successfully")
     }
     const handleIconClick = () => {
-        fileInputRef.current?.click();
+        if (fileInputRef.current){
+            fileInputRef.current?.click();
+        }
     };
 
     const handleSubmitImage = async (e: any) => {
