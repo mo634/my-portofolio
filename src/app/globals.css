@@ -73,7 +73,7 @@
 
 @layer utilities {
   .link-style {
-    @apply text-background text-lg font-semibold hover:text-secondary
+    @apply text-white text-lg font-semibold hover:text-secondary
   }
 
   .input-style {
@@ -96,7 +96,7 @@
 
 .liquid-wrapper {
   position: relative;
-  padding:2px 3px ;
+  padding: 2px 3px;
   display: block;
   text-decoration: none;
   text-transform: uppercase;
@@ -165,3 +165,4 @@ a:hover .liquid {
 }
 
 /*end  liquid button style  */
+

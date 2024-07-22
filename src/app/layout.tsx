@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import ReduxProvider from "./components/ReduxProvide.js";
+import HeaderMobile from "./components/HeaderMobile";
 
 
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         {/* start header */}
         <ReduxProvider>
           <Header />
+          <HeaderMobile />
         </ReduxProvider>
         {/* end header */}
 
