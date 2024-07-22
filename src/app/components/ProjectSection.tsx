@@ -36,7 +36,7 @@ const Project = ({ _id, setProjectsData, title, projectImage, githubLink, descri
 
   }
   return (
-    <section className="bg-secondary flex flex-col  overflow-hidden w-[30%] dark:bg-gray-800 rounded-lg min-h-[300px] max-h[500]
+    <section className="bg-secondary flex flex-col  overflow-hidden w-[30%] dark:bg-gray-800 rounded-lg min-h-[200px] max-h-[600px]
       max-md:w-[100%]
     ">
       {/*start top section  */}
