@@ -89,6 +89,12 @@
   opacity: 0;
 }
 
+.linear-gradient {
+  background: linear-gradient(90deg, rgba(101, 100, 107, 1) 0%, rgba(0, 0, 0, 1) 29%, rgba(16, 30, 33, 1) 100%);
+ background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* start liquid button style  */
 
 
@@ -165,4 +171,3 @@ a:hover .liquid {
 }
 
 /*end  liquid button style  */
-

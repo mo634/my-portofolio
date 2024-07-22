@@ -5,13 +5,14 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 
-const AdminAuth = () => {
+const AdminAuth = ({ setAdminButton }: any) => {
     // define states
     const router = useRouter();
     const dispatch = useAppDispatch();
     const isAdmin = useAppSelector((state) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
     const [password, setPassword] = useState('');
     const adminPassword = process.env.ADMIN_PASSWORD;
+    const [hideAdminAuht, setHideAdminAuth] = useState(false);
 
     // define functions
     const handleAdminClick = async () => {
@@ -27,13 +28,16 @@ const AdminAuth = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-            <h1 className="text-4xl font-bold text-main mb-4">Welcome to My Portfolio</h1>
+        <div className={`${hideAdminAuht ? "opacity-0" : "opacity-100"}
+        flex flex-col items-center justify-center w-fit bg-primary-foreground p-4 rounded-md shadow-sm`}>
+            <span className="text-2xl mb-4 font-bold text-center w-full block cursor-pointer"
+                onClick={() =>{ setHideAdminAuth(!hideAdminAuht); setAdminButton(false) }}
+            >X</span>
             <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mb-4 p-2 border border-gray-300 rounded"
+                className="mb-4 p-2 border border-blue-700 rounded"
                 placeholder="Enter Admin Password"
             />
             <button
