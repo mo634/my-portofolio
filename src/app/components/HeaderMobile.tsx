@@ -40,11 +40,11 @@ function HeaderMobile() {
 
                 {
 
-                    <div className={`opacity-0 ${isMenuClicked ? "opacity-100" : ""} transition duration-500`}>
+                    <div className={` ${isMenuClicked ? "fixed min-h-screen z-10 right-[50%]" : "hidden"} transition duration-500`}>
 
                         <nav className="
                        
-                            min-w-[200px] min-h-[200px]  z-10
+                            min-w-[200px] min-h-[200px]  
                             absolute flex flex-col  gap-4 p-3 rounded-md bg-primary shadow-md 
                             top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 
                             ">
