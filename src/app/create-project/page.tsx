@@ -77,7 +77,7 @@ const CreateProject = () => {
         setIsImageUploaded("image uploaded successfully")
     }
     const handleIconClick = () => {
-        if (fileInputRef.current){
+        if (fileInputRef.current) {
             fileInputRef.current?.click();
         }
     };
@@ -90,15 +90,13 @@ const CreateProject = () => {
 
             const formData = new FormData()
             formData.append('image', image)
-            console.log("form data from frontend", formData)
+
 
             const response = await axios.post('/api/upload-image', formData)
 
             const data = await response.data
 
-            console.log("data from backend after complete calling api ",
-                data.data.secure_url
-            )
+
 
             setProjectImage(data.data.secure_url)
             setProjectImageId(data.data.public_id)
@@ -111,7 +109,7 @@ const CreateProject = () => {
 
 
     return (
-        <section className="flex px-2 py-10 justify-center gap-5">
+        <section className="flex px-2 py-10 justify-center gap-5 max-md:flex-col max-md:items-center">
             <div className="">
                 <Image src={createProjectImage} alt="Project Image" width={500} height={500}
                     className="object-cover rounded-md  shadow-md"
@@ -186,13 +184,15 @@ const CreateProject = () => {
                 </div>
                 <div>
                     {/*start  upload project image  */}
-                    <div className=" flex justify-between mb-3">
+                    <div className=" flex justify-between mb-3 max-sm:flex-col gap-2">
                         <input type="file"
                             className="hidden"
                             ref={fileInputRef}
                             onChange={handleImageUploading}
                         />
-                        <div className="cursor-pointer trnasation duration-500 hover:text-white flex items-center gap-2 border-blue-700 border-2 p-2 rounded-md hover:bg-blue-700 text-primary capitalize"
+                        <div className="
+                        
+                        cursor-pointer trnasation duration-500 hover:text-white flex items-center gap-2 border-blue-700 border-2 p-2 rounded-md hover:bg-blue-700 text-primary capitalize"
                             onClick={handleIconClick}
                         >
                             <FaUpload
@@ -200,9 +200,9 @@ const CreateProject = () => {
                                 className="text-2xl"
                             />
                             <p>
-                            {
-                                isImageUploaded?isImageUploaded :" select image for your project"
-                            }
+                                {
+                                    isImageUploaded ? isImageUploaded : " select image for your project"
+                                }
                             </p>
                         </div>
                         <Button
@@ -219,7 +219,9 @@ const CreateProject = () => {
 
                     <button
                         type="submit"
-                        className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        className="
+                        max-sm:w-full
+                        inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
 
                     >
                         {

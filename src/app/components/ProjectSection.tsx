@@ -12,7 +12,7 @@ const Project = ({ _id, setProjectsData, title, projectImage, githubLink, descri
   const isAdmin = useAppSelector((state) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
   const [isLoding, setIsLoding] = useState(false)
   const handleRemoveProject = async () => {
-    console.log("clicked")
+
     try {
       setIsLoding(true)
       const response = await fetch(`/api/projects?id=${_id}`, {
@@ -23,7 +23,7 @@ const Project = ({ _id, setProjectsData, title, projectImage, githubLink, descri
       })
       setIsLoding(false)
       const data = await response.json()
-      console.log(data)
+
       if (data.success) {
         setProjectsData((prevProjects) => prevProjects.filter(project => project._id !== _id));
       }
@@ -77,7 +77,7 @@ const Project = ({ _id, setProjectsData, title, projectImage, githubLink, descri
         </div>
 
         <div className="  mt-4 flex  justify-between items-center">
-          <Link href={livePreviewLink}>
+          <Link href={livePreviewLink} target='_blank'>
             <Button
               className='bg-blue-700 hover:bg-non hover:opacity-[0.9] transition-all duration-500'
             >

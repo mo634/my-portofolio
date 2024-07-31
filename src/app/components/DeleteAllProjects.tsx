@@ -13,13 +13,13 @@ const DeleteAllProjects = () => {
                 window.location.reload() // Reload the page after successful deletion
             }
 
-            console.log(data)
+
         } catch (error) {
             console.log("error while deleting all projects ", error)
         }
     }
     return (
-        <Button className='hover:bg-transparent bg-transparent hover:cursor-pointer text-primary flex gap-1 px-1 transition duration-500 hover:bg-blue-700 hover:text-white'>
+        <Button className='bg-transparent hover:bg-blue-700 btn-admin-style'>
             <AiFillDelete className="text-2xl" />
             <span
                 onClick={handleDeletAllProjects}

@@ -9,7 +9,7 @@ import { TbCircleLetterMFilled } from "react-icons/tb";
 function HeaderMobile() {
     const isAdmin = useAppSelector((state) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
     const [isMenuClicked, setIsMenuClicked] = useState(false)
-    console.log(isMenuClicked)
+
     return (
         <header className="  flex justify-between items-center bg-primary text-white p-2 md:hidden">
             {/* logo */}
@@ -73,7 +73,7 @@ function HeaderMobile() {
                                 About
                             </Link>
                             <span className=''
-                                onClick={() => setIsMenuClicked(!isMenuClicked)}
+
                             >
                                 {isAdmin && <AdminOptions />}
                             </span>

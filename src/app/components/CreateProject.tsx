@@ -16,7 +16,7 @@ const CreateNewProject = () => {
 
             <Button
                 onClick={() => { setCreateProject(true) }}
-                className='p-2  text-primary bg-transparent transition duration-500 hover:bg-blue-700 hover:text-white mb-2'
+                className='bg-transparent hover:bg-blue-700  btn-admin-style'
             >
                 <IoMdAdd className="text-2xl" />
                 create new Project

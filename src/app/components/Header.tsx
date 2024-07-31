@@ -9,7 +9,7 @@ import { useAppSelector } from '@/store';
 const Header = () => {
   const isAdmin = useAppSelector((state) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
   return (
-    <header className="bg-primary p-4 max-md:hidden h-[10vh] ">
+    <header className="bg-primary p-4 max-md:hidden h-[10vh] shadow-md">
       <nav className="flex justify-around items-center ">
         <Link href="/" className="link-style">
           Home
@@ -19,9 +19,6 @@ const Header = () => {
         </Link>
         <Link href="/projects" className="link-style">
           Projects
-        </Link>
-        <Link href="/about" className="link-style">
-          About
         </Link>
         <span className='text-white'>
           {isAdmin && <AdminOptions />}

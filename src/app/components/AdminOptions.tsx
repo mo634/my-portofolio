@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import CreateNewProject from './CreateProject';
 import DeleteAllProjects from './DeleteAllProjects';
 import { MdArrowDropUp } from 'react-icons/md';
+import CreateSkill from './CreateSkill';
 
 const AdminOptions = () => {
     const isAdmin = useAppSelector((state) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
@@ -27,6 +28,8 @@ const AdminOptions = () => {
                     <p><CreateNewProject /></p>
 
                     <DeleteAllProjects />
+
+                    <CreateSkill />
                 </div>
             )}
         </div>
