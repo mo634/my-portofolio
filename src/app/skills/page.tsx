@@ -9,7 +9,7 @@ import { TbBrandGithubCopilot } from "react-icons/tb";
 
 import DynamicIconSelector from "../components/DynamicIconSelector.js"
 const Skills = () => {
-    const [skills, setSkills] = useState(null)
+    const [skills, setSkills] = useState<any[]>([]);
 
     const icon = "FaHtml5"
 
