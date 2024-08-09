@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "../components/ui/button";
+import TransitionPageEffect from "../components/TransitionPageEffect";
 
 const CreateSkill = () => {
     // states 
@@ -60,7 +61,7 @@ const CreateSkill = () => {
     }
     return (
         <section className=" h-[90vh] w-full flex flex-col items-center">
-
+            <TransitionPageEffect />
             <h1 className="mt-4 text-4xl font-bold text-main  text-responsive mb-10 text-center">
                 Add New Skill
             </h1>

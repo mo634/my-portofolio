@@ -7,6 +7,7 @@ import { IoMdAdd } from 'react-icons/io';
 import { useAppSelector } from '@/store/index.js';
 import ProjectSection from '@/app/components/ProjectSection';
 import { useRouter } from 'next/navigation';
+import TransitionPageEffect from '../components/TransitionPageEffect';
 const Projects = () => {
     const [projectsData, setProjectsData] = useState<ProjectProps[]>([]);
     const [createProject, setCreateProject] = useState(false)
@@ -29,7 +30,7 @@ const Projects = () => {
 
     return (
         <section className="p-4 flex min-h-screen  flex-wrap gap-2 ">
-
+            <TransitionPageEffect />
             {projectsData.length === 0 ? (
                 <div className="loader">Loading
                     <span></span>
