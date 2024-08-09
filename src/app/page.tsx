@@ -11,15 +11,15 @@ const Home = () => {
   const [adminButton, setAdminButton] = useState(false)
 
   return (
-    <section className='px-[40px] max-md:px-0 bg-gray-100 py-2 h-[90vh]'>
+    <section className='px-[40px] max-md:px-0 bg-gray-100 py-2 h-[90vh] w-full' >
       <p className="mt-4 text-4xl font-bold text-main  text-responsive mb-10 text-center ">
         Welcome to My Portfolio
       </p>
 
-      <div className="flex max-md:flex-col max-md:w-full  bg-gray-100 items-center gap-[50px] ">
-        <div className=" bg-primary rounded-md shadow-md flex items-center justify-center border-2 border-blue-700 ">
+      <div className="flex max-md:flex-col max-md:w-full max-md:justify-center  bg-gray-100 gap-[50px] items-center ">
+        <div className="  self-center bg-primary rounded-md shadow-md  border-2 border-blue-700 ">
           <Image
-            className='self-center'
+            className=''
             alt='My Personal Image'
             src={PersonalImage}
             width={350}

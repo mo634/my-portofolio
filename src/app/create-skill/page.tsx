@@ -59,15 +59,14 @@ const CreateSkill = () => {
 
     }
     return (
-        <section>
+        <section className=" h-[90vh] w-full flex flex-col items-center">
 
             <h1 className="mt-4 text-4xl font-bold text-main  text-responsive mb-10 text-center">
                 Add New Skill
             </h1>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="max-w-4xl ">
 
-                this is form
 
                 <div className="">
                     <label htmlFor="skillName">Skill Name:</label>
@@ -114,7 +113,7 @@ const CreateSkill = () => {
                     />
                 </div>
 
-                <Button type="submit">Add Skill</Button>
+                <Button type="submit" className="w-full my-2">Add Skill</Button>
 
 
             </form>

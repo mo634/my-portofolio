@@ -19,12 +19,12 @@ const DeleteAllProjects = () => {
         }
     }
     return (
-        <Button className='bg-transparent hover:bg-blue-700 btn-admin-style'>
+        <button className='bg-transparent hover:bg-blue-700 btn-admin-style'>
             <AiFillDelete className="text-2xl" />
             <span
                 onClick={handleDeletAllProjects}
             > DeleteAllProjects</span>
-        </Button>
+        </button>
     )
 }
 

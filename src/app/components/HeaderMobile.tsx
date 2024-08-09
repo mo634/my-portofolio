@@ -13,11 +13,11 @@ function HeaderMobile() {
     return (
         <header className="  flex justify-between items-center bg-primary text-white p-2 md:hidden">
             {/* logo */}
-            <h1
+            <Link href={"/"}
                 className=""
             ><TbCircleLetterMFilled className="text-6xl text-blue-700 bg-secondary rounded-full" />
 
-            </h1>
+            </Link>
 
             {/* menu */}
 
@@ -72,13 +72,6 @@ function HeaderMobile() {
                             >
                                 About
                             </Link>
-                            <span className=''
-
-                            >
-                                {isAdmin && <AdminOptions />}
-                            </span>
-
-
                         </nav>
                     </div>
 

@@ -14,13 +14,13 @@ const CreateNewProject = () => {
 
         <>
 
-            <Button
+            <button
                 onClick={() => { setCreateProject(true) }}
-                className='bg-transparent hover:bg-blue-700  btn-admin-style'
+                className='bg-transparent hover:bg-blue-700  btn-admin-style '
             >
                 <IoMdAdd className="text-2xl" />
                 create new Project
-            </Button>
+            </button>
 
             {createProject && (router.push("/create-project"))}
 

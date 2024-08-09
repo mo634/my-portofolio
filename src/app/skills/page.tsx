@@ -26,20 +26,25 @@ const Skills = () => {
 
     console.log(skills)
     return (
-        <section className="h-[90vh] overflow-hidden">
+        <section className="h-[90vh]">
 
 
             {
                 <>
                     <h1 className="mt-4 text-4xl font-bold text-main  text-responsive mb-10 text-center">My Skills</h1>
-
-                    <div
+                    {
+                        skills?.length === 0 ? (
+                            <div className="loader">Loading
+                            <span></span>
+                        </div>
+                        ):
+                        <div
                         className="flex flex-wrap gap-2 max-sm:justify-center   "
                     >
                         {
                             skills?.map((skill: any) => {
                                 return <div key={skill._id}
-                                    className="w-[250px] bg-secondary rounded-md shadow-sm   p-2"
+                                    className="min-w-[250px] bg-secondary rounded-md shadow-sm p-2 "
                                 >
                                     <div className=" flex justify-center  ">
                                         <DynamicIconSelector skillIcon={skill.skillIcon}
@@ -75,7 +80,11 @@ const Skills = () => {
 
                             })
                         }</div>
-                </>}
+
+}
+                    
+                </>
+                }
 
         </section>
     )

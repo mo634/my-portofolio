@@ -7,31 +7,22 @@ import { MdArrowDropUp } from 'react-icons/md';
 import CreateSkill from './CreateSkill';
 
 const AdminOptions = () => {
-    const isAdmin = useAppSelector((state) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
-
-    const [showAdminOptions, setShowAdminOptions] = useState(false)
 
 
     return (
-        <div className='relative '>
-            <div
-                className=' cursor-pointer'
-                onClick={() => setShowAdminOptions(!showAdminOptions)}
-            >AdminOptions</div>
+        <div className='relative py-2 '>
+
+            <div className=" w-full flex flex-col items-start " >
+
+                <CreateNewProject />
+
+                <CreateSkill />
+
+                <DeleteAllProjects />
 
 
-            {showAdminOptions && isAdmin && (
+            </div>
 
-                <div className=" top-8 left-0 absolute bg-secondary p-2 rounded-md">
-                    <MdArrowDropUp className='text-2xl  absolute top-[-14px] right-[50%] ' />
-
-                    <p><CreateNewProject /></p>
-
-                    <DeleteAllProjects />
-
-                    <CreateSkill />
-                </div>
-            )}
         </div>
     )
 }

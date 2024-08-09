@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import ReduxProvider from "./components/ReduxProvide.js";
 import HeaderMobile from "./components/HeaderMobile";
+import AdminPanel from "./components/AdminPanel";
 
 
 
@@ -23,16 +24,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* start header */}
-        <ReduxProvider>
-          <Header />
-          <HeaderMobile />
-        </ReduxProvider>
-        {/* end header */}
+        <div className="">
+          {/* start header */}
+          <ReduxProvider>
+            <Header />
+            <HeaderMobile />
+          </ReduxProvider>
+          {/* end header */}
 
-        <ReduxProvider>
-          {children}
-        </ReduxProvider>
+          <div className="flex">
+            <ReduxProvider>
+              {children}
+            </ReduxProvider>
+            
+            <ReduxProvider>
+              <AdminPanel />
+            </ReduxProvider>
+          </div>
+        </div>
+
       </body>
     </html>
   );

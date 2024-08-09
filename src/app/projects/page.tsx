@@ -29,8 +29,11 @@ const Projects = () => {
 
     return (
         <section className="p-4 flex min-h-screen  flex-wrap gap-2 ">
+
             {projectsData.length === 0 ? (
-                <p>Loading...</p>
+                <div className="loader">Loading
+                    <span></span>
+                </div>
             ) : <>
                 {projectsData.map((project, index) => (
                     <ProjectSection
