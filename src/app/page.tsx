@@ -6,15 +6,17 @@ import { FaDownload } from "react-icons/fa6";
 import PersonalImage from "@/../public/images/MyPersonalImage.png"
 import Image from 'next/image'
 import Link from 'next/link'
-import TransitionPageEffect from './components/TransitionPageEffect.jsx'
+import TransitionEffectNavigation from './components/TransitionEffectNavigation.jsx'
+import { RiAdminLine } from "react-icons/ri";
+
 const Home = () => {
   const [adminButton, setAdminButton] = useState(false)
 
   return (
     <>
-      <TransitionPageEffect />
 
       <section className='px-[40px] max-md:px-0 bg-gray-100 py-2 h-[90vh] w-full' >
+      <TransitionEffectNavigation />
         <p className="mt-4 text-4xl font-bold text-main  text-responsive mb-10 text-center ">
           Welcome to My Portfolio
         </p>
@@ -35,9 +37,11 @@ const Home = () => {
 
           <div className="px-4 mb-2 flex flex-col gap-4  ">
             <div className="flex flex-col gap-4">
-              <h1 className='text-2xl font-bold text-main  text-responsive mb-4 '>FullStack Developer</h1>
+              <h1 className='text-2xl font-bold text-main max-md:text-center  mb-4 '>FullStack Developer</h1>
 
-              <p className=' text-gray-700 leading-relaxed max-md:line-clamp-5'>
+              <p className=' text-gray-700 leading-relaxed max-md:line-clamp-5 max-md:text-center 
+              
+              max-sm:text-sm'>
                 Accomplished Junior Full Stack Developer with two years of hands-on experience in HTML5,<br />
                 CSS3, JavaScript (ES6+), React.js, Next.js, and Express.js. Proficient in MySQL, MongoDB,<br />
                 and Git, emphasizing data performance optimization and robust version control. Passionate<br />
@@ -46,18 +50,19 @@ const Home = () => {
               </p>
 
             </div>
-            <div className=" flex gap-3">
+            <div className=" flex gap-3 items-center justify-center">
               <Link href={"/files/MYCV.pdf"}
                 target='_blank'
                 rel="noopener noreferrer"
                 download={true}>
 
                 <Button
-                  className=' bg-secondary text-primary border-2  border-primary hover:bg-transparent hover:opacity-[.8] transition duration-300'
+                  className=' max-sm:hidden bg-secondary text-primary border-2  border-primary hover:bg-transparent hover:opacity-[.8] transition duration-300'
                 >
                   <FaDownload className='mr-2 text-xl hover:text-blue-700 transition duration-500' />
                   Download Resume
                 </Button>
+                <FaDownload className='  text-blue-700 max-sm:block hidden mr-2 text-xl hover:text-blue-700 transition duration-500' />
               </Link>
 
               <div className="">
@@ -71,10 +76,12 @@ const Home = () => {
 
                       <Button
                         onClick={() => { setAdminButton(!adminButton) }}
-                        className="bg-main bg-primary text-white py-2 px-4 rounded-lg hover:opacity-[.85] transition duration-300"
+                        className="max-sm:hidden bg-main bg-primary text-white py-2 px-4 rounded-lg hover:opacity-[.85] transition duration-300"
                       >
                         Are you admin?
                       </Button>
+
+                      <RiAdminLine className=' text-blue-700 max-sm:block hidden text-3xl hover:text-blue-700 transition duration-500' />
                     </>
 
 

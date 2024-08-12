@@ -1,14 +1,9 @@
 "use client"
-
-import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import nodeImage from "/public/images/nodejs.png"
-import { FaHtml5 } from "react-icons/fa6";
-import { TbBrandGithubCopilot } from "react-icons/tb";
-
 import DynamicIconSelector from "../components/DynamicIconSelector.js"
-import TransitionPageEffect from "../components/TransitionPageEffect.jsx"
+import TransitionEffectNavigation from "../components/TransitionEffectNavigation.jsx"
+
 const Skills = () => {
     const [skills, setSkills] = useState<any[]>([]);
 
@@ -27,10 +22,9 @@ const Skills = () => {
 
     console.log(skills)
     return (
-        <section className="h-[90vh]">
+        <section className="h-[90vh] w-full">
 
-            <TransitionPageEffect />
-
+            <TransitionEffectNavigation />
 
             {
                 <>

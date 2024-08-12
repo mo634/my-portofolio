@@ -36,10 +36,11 @@ export default function RootLayout({
             <ReduxProvider>
               {children}
             </ReduxProvider>
-            
-            <ReduxProvider>
-              <AdminPanel />
-            </ReduxProvider>
+            <div className="  ">
+              <ReduxProvider>
+                <AdminPanel />
+              </ReduxProvider>
+            </div>
           </div>
         </div>
 
