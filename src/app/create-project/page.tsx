@@ -111,9 +111,9 @@ const CreateProject = () => {
 
 
     return (
-        <section className="flex px-2 py-10 justify-center gap-5 max-md:flex-col max-md:items-center">
+        <section className="flex gap-4 px-2 py-10 max-md:flex-col max-md:items-center w-full items-center justify-center">
             <TransitionEffectNavigation />
-            <div className=" flex-1">
+            <div className="  ">
                 <Image src={createProjectImage} alt="Project Image" width={500} height={500}
                     className="object-cover rounded-md  shadow-md"
                 />
