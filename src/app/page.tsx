@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <>
 
-      <section className='px-[40px] max-md:px-0 bg-gray-100 py-2 h-[90vh] w-full' >
+      <section className='relative px-[40px] max-md:px-0 bg-gray-100 py-2 h-[90vh] w-full' >
       <TransitionEffectNavigation />
         <p className="mt-4 text-4xl font-bold text-main  text-responsive mb-10 text-center ">
           Welcome to My Portfolio
