@@ -22,7 +22,7 @@ const Skills = () => {
 
     console.log(skills)
     return (
-        <section className="h-[90vh] w-full">
+        <section className="relative h-[90vh] w-full">
 
             <TransitionEffectNavigation />
 
