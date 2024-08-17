@@ -16,8 +16,8 @@ const Home = () => {
 
       <section className='px-[40px] max-md:px-0 bg-gray-100 py-2 h-[90vh] w-full' >
 
-        <p className="mt-4 text-4xl font-bold text-main  text-responsive mb-10 text-center ">
-          Welcome to My Portfolio
+        <p className="capitalize mt-4 text-4xl font-bold text-main  text-responsive mb-10 text-center ">
+          welcome to my portfolio
         </p>
 
         <div className="flex max-md:flex-col max-md:w-full max-md:justify-center  bg-gray-100 gap-[50px] items-center ">
