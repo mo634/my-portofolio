@@ -8,7 +8,6 @@ import axios from "axios";
 
 import { Button } from "../components/ui/button";
 import { FaUpload } from 'react-icons/fa';
-import TransitionEffectNavigation from "../components/TransitionEffectNavigation.jsx";
 
 const CreateProject = () => {
     // states 
@@ -112,7 +111,7 @@ const CreateProject = () => {
 
     return (
         <section className="flex gap-4 px-2 py-10 max-md:flex-col max-md:items-center w-full items-center justify-center">
-            <TransitionEffectNavigation />
+
             <div className="  ">
                 <Image src={createProjectImage} alt="Project Image" width={500} height={500}
                     className="object-cover rounded-md  shadow-md"

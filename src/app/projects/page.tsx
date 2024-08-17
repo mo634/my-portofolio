@@ -7,7 +7,6 @@ import { IoMdAdd } from 'react-icons/io';
 import { useAppSelector } from '@/store/index.js';
 import ProjectSection from '@/app/components/ProjectSection';
 import { useRouter } from 'next/navigation';
-import TransitionEffectNavigation from '../components/TransitionEffectNavigation.jsx';
 
 const Projects = () => {
     const [projectsData, setProjectsData] = useState<ProjectProps[]>([]);
@@ -31,7 +30,7 @@ const Projects = () => {
 
     return (
         <section className="p-4 flex min-h-screen w-full flex-wrap gap-2 ">
-            <TransitionEffectNavigation />
+
             {projectsData.length === 0 ? (
                 <div className="loader bg-yellow-500 ">Loading
                     <span></span>

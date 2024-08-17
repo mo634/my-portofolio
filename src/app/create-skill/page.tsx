@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Button } from "../components/ui/button";
-import TransitionEffectNavigation from "../components/TransitionEffectNavigation.jsx";
 
 
 const CreateSkill = () => {
@@ -62,7 +61,7 @@ const CreateSkill = () => {
     }
     return (
         <section className=" h-[90vh] w-full flex flex-col items-center">
-            <TransitionEffectNavigation/>
+
             <h1 className="mt-4 text-4xl font-bold text-main  text-responsive mb-10 text-center">
                 Add New Skill
             </h1>

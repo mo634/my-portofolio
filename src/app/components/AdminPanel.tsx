@@ -7,7 +7,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 const AdminPanel = () => {
     const isAdmin = useAppSelector((state) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
-    const [hideAdminPanel, setHideAdminPanel] = useState(false)
+    const [hideAdminPanel, setHideAdminPanel] = useState(true)
     return (
         isAdmin && (
             <div className='relative  '>

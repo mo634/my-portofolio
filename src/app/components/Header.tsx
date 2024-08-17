@@ -4,7 +4,7 @@ import Link from 'next/link';
 const Header = () => {
 
   return (
-    <header className=" bg-primary max-md:hidden h-[10vh] shadow-md">
+    <header className="bg-primary max-md:hidden h-[10vh] shadow-md">
       <nav className="flex justify-around items-center h-full ">
         <Link href="/" className="link-style">
           Home

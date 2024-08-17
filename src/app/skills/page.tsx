@@ -2,7 +2,6 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import DynamicIconSelector from "../components/DynamicIconSelector.js"
-import TransitionEffectNavigation from "../components/TransitionEffectNavigation.jsx"
 
 const Skills = () => {
     const [skills, setSkills] = useState<any[]>([]);
@@ -24,7 +23,6 @@ const Skills = () => {
     return (
         <section className="h-[90vh] w-full">
 
-            <TransitionEffectNavigation />
 
             {
                 <>
