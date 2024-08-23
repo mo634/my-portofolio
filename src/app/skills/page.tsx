@@ -2,17 +2,21 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import DynamicIconSelector from "../components/DynamicIconSelector.js"
+import NoData from "../components/NoData"
 
 const Skills = () => {
     const [skills, setSkills] = useState<any[]>([]);
+    const [loading, setLoading] = useState(false)
 
     const icon = "FaHtml5"
 
     useEffect(() => {
         const fetchSkills = async () => {
+            setLoading(true)
             const res = await fetch('/api/skills')
             const data = await res.json()
             setSkills(data.data)
+            setLoading(false)
 
         }
 
@@ -28,10 +32,12 @@ const Skills = () => {
                 <>
                     <h1 className="mt-4 text-4xl font-bold text-main  text-responsive mb-10 text-center">My Skills</h1>
                     {
-                        skills?.length === 0 ? (
+                        loading ? (
                             <div className="loader">Loading
                                 <span></span>
                             </div>
+                        ) : skills?.length === 0 ? (
+                            <NoData label="Create Your First Skill" />
                         ) :
                             <div
                                 className="flex flex-wrap gap-2 max-sm:justify-center   "

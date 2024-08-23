@@ -15,6 +15,9 @@ const Header = () => {
         <Link href="/projects" className="link-style">
           Projects
         </Link>
+        <Link href="/courses" className="link-style">
+          Courses
+        </Link>
       </nav>
     </header>
   );
