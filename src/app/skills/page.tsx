@@ -37,7 +37,9 @@ const Skills = () => {
                                 <span></span>
                             </div>
                         ) : skills?.length === 0 ? (
-                            <NoData label="Create Your First Skill" />
+                            <NoData label="Create Your First Skill"
+                                path="/create-project"
+                            />
                         ) :
                             <div
                                 className="flex flex-wrap gap-2 max-sm:justify-center"
