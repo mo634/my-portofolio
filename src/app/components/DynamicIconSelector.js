@@ -51,13 +51,11 @@ const DynamicIconSelector = ({ skillIcon, skillIconLibrary }) => {
     };
     useEffect(() => {
         loadIcon();
-    }, [])
+    }, [skillIcon, skillIconLibrary])
 
     return (
         <div>
-
-
-            <div>
+            <div key={skillIcon}>
                 {IconComponent ? (
                     <IconComponent size={40} className="text-primary" />
                 ) : (
