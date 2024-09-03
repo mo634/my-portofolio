@@ -20,7 +20,7 @@ const AdminAuth = ({ setAdminButton }: any) => {
 
         if (isPasswordValid) {
             dispatch(setAdmin(true));
-            router.push('/welcome');
+            router.push('/');
         } else {
             alert('Invalid password');
             router.push('/');
@@ -31,7 +31,7 @@ const AdminAuth = ({ setAdminButton }: any) => {
         <div className={`${hideAdminAuht ? "opacity-0" : "opacity-100"}
         flex flex-col items-center justify-center w-fit bg-primary-foreground p-4 rounded-md shadow-sm`}>
             <span className="text-2xl mb-4 font-bold text-center w-full block cursor-pointer"
-                onClick={() =>{ setHideAdminAuth(!hideAdminAuht); setAdminButton(false) }}
+                onClick={() => { setHideAdminAuth(!hideAdminAuht); setAdminButton(false) }}
             >X</span>
             <input
                 type="password"

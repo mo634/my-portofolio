@@ -36,23 +36,25 @@ const Project = ({ _id, setProjectsData, title, projectImage, githubLink, descri
 
   }
   return (
-    <section className="bg-secondary flex flex-col  overflow-hidden w-[30%] dark:bg-gray-800 rounded-lg min-h-[200px] max-h-[600px]
+    <section className="bg-secondary mt-4 flex flex-col w-[30%] dark:bg-gray-800 rounded-lg items-stretch
       max-md:w-[100%]
     ">
       {/*start top section  */}
-      <Image
-        className="
+      <div className=" rounded-md overflow-hidden">
+        <Image
+          className="
         max-md:h-[200px]
         cursor-pointer object-cover w-full max-h-[180px] hover:scale-125 hover:rotate-2 transition-all duration-500"
-        src={projectImage}
-        alt="Project Image"
-        width={200}
-        height={180}
-      />
+          src={projectImage}
+          alt="Project Image"
+          width={200}
+          height={180}
+        />
+      </div>
       {/* end top section */}
 
       {/* start bottom section */}
-      <div className="p-6 overflow-hidden  h-full flex flex-col justify-between ">
+      <div className="p-6   h-full flex flex-col justify-between ">
 
         <div className="">
           <p className="uppercase tracking-wide text-sm text-primary  font-semibold">{title}</p>

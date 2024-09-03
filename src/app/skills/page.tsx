@@ -30,7 +30,7 @@ const Skills = () => {
 
             {
                 <>
-                    <h1 className="mt-4 text-4xl font-bold text-main  text-responsive mb-10 text-center">My Skills</h1>
+                    <h1 className="mt-4 text-4xl font-bold text-main  text-responsive mb-10 text-center text-gradient">My Skills</h1>
                     {
                         loading ? (
                             <div className="loader">Loading
@@ -40,7 +40,7 @@ const Skills = () => {
                             <NoData label="Create Your First Skill" />
                         ) :
                             <div
-                                className="flex flex-wrap gap-2 max-sm:justify-center   "
+                                className="flex flex-wrap gap-2 max-sm:justify-center"
                             >
                                 {
                                     skills?.map((skill: any) => {

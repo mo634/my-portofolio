@@ -52,22 +52,22 @@ function HeaderMobile() {
                                 cursor-pointer text-white text-right hover:text-2xl transition-all duration-200`}
                                 onClick={() => setIsMenuClicked(!isMenuClicked)}
                             >X</div>
-                            <Link href="/" className="link-style"
+                            <Link href="/" className=""
                                 onClick={() => setIsMenuClicked(!isMenuClicked)}
                             >
                                 Home
                             </Link>
-                            <Link href="/skills" className="link-style"
+                            <Link href="/skills" className=""
                                 onClick={() => setIsMenuClicked(!isMenuClicked)}
                             >
                                 Skills
                             </Link>
-                            <Link href="/projects" className="link-style"
+                            <Link href="/projects" className=""
                                 onClick={() => setIsMenuClicked(!isMenuClicked)}
                             >
                                 Projects
                             </Link>
-                            <Link href="/about" className="link-style"
+                            <Link href="/about" className=""
                                 onClick={() => setIsMenuClicked(!isMenuClicked)}
                             >
                                 About
