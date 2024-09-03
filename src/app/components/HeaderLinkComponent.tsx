@@ -10,9 +10,10 @@ const HeaderLinkComponent = () => {
     return (
         <>
 
-            {headerLinks.map((link: any) => (
+            {headerLinks.map((link: any, i) => (
                 <Link href={link.href}
                     className='relative link-style group z-10 px-2'
+                    key={i}
                 >
                     {link.name}
                     <span className={`${pathname === link.href ? 'fixed-link-style' : ''}`}></span>
