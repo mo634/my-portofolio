@@ -8,6 +8,7 @@ import axios from "axios";
 
 import { Button } from "../components/ui/button";
 import { FaUpload } from 'react-icons/fa';
+import DropZone from "../components/DropZon";
 
 const CreateProject = () => {
     // states 
@@ -19,7 +20,6 @@ const CreateProject = () => {
     const [projectImage, setProjectImage] = useState("")
     const [projectImageId, setProjectImageId] = useState("")
     const [isLoading, setIsLoading] = useState(false)
-    const [image, setImage] = useState<File | null>(null)
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [isImageUploaded, setIsImageUploaded] = useState("")
     // functions
@@ -37,6 +37,7 @@ const CreateProject = () => {
         };
         try {
             setIsLoading(true)
+            console.log("project", project);
 
             const response = await fetch('/api/projects', {
                 method: 'POST',
@@ -71,50 +72,16 @@ const CreateProject = () => {
         }
     };
 
-    const handleImageUploading = (e: ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files) {
-            setImage(e.target.files[0])
-        }
-        setIsImageUploaded("image uploaded successfully")
-    }
-    const handleIconClick = () => {
-        if (fileInputRef.current) {
-            fileInputRef.current?.click();
-        }
-    };
 
-    const handleSubmitImage = async (e: any) => {
-        e.preventDefault()
-        try {
-            setIsLoading(true)
-            if (!image) return
-
-            const formData = new FormData()
-            formData.append('image', image)
-
-
-            const response = await axios.post('/api/upload-image', formData)
-
-            const data = await response.data
-
-
-
-            setProjectImage(data.data.secure_url)
-            setProjectImageId(data.data.public_id)
-        } catch (error) {
-            console.log("error while uploading image", error)
-        } finally {
-            setIsLoading(false)
-        }
-    }
 
 
     return (
-        <section className="flex gap-4 px-2 py-10 max-md:flex-col max-md:items-center w-full items-center justify-center">
+        <section className="flex gap-4 px-2 py-10 max-lg:flex-col max-lg:items-center w-full items-center justify-center">
 
-            <div className="  ">
-                <Image src={createProjectImage} alt="Project Image" width={500} height={500}
-                    className="object-cover rounded-md  shadow-md"
+            <div className="p-2 max-lg:w-auto  w-[25%] bg-secondary  h-full flex items-center justify-center border-2 border-dashed border-blue-700">
+                <DropZone
+                    setProjectImage={setProjectImage}
+                    setProjectImageId={setProjectImageId}
                 />
             </div>
 
@@ -185,46 +152,11 @@ const CreateProject = () => {
                     />
                 </div>
                 <div>
-                    {/*start  upload project image  */}
-                    <div className=" flex justify-between mb-3 max-sm:flex-col gap-2">
-                        <input type="file"
-                            className="hidden"
-                            ref={fileInputRef}
-                            onChange={handleImageUploading}
-                        />
-                        <div className="
-                        
-                        cursor-pointer trnasation duration-500 hover:text-white flex items-center gap-2 border-blue-700 border-2 p-2 rounded-md hover:bg-blue-700 text-primary capitalize"
-                            onClick={handleIconClick}
-                        >
-                            <FaUpload
-
-                                className="text-2xl"
-                            />
-                            <p>
-                                {
-                                    isImageUploaded ? isImageUploaded : " select image for your project"
-                                }
-                            </p>
-                        </div>
-                        <Button
-                            onClick={handleSubmitImage}
-                            disabled={isLoading}
-                        >
-                            {
-                                isLoading ? "Loading..." : "Upload Image"
-                            }
-
-                        </Button>
-                    </div>
-                    {/*end   upload project image  */}
-
                     <button
                         type="submit"
                         className="
-                        max-sm:w-full
+                        w-full duration-500
                         inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-
                     >
                         {
                             isLoading ? "Loading..." : "Create Project"
