@@ -11,8 +11,5 @@ export const headerLinks = [
         name: "Projects",
         href: "/projects",
     },
-    {
-        name: "Courses",
-        href: "/courses",
-    },
+
 ]

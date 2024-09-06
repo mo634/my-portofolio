@@ -11,13 +11,13 @@ const AdminPanel = () => {
     return (
         isAdmin && (
             <div className='relative  '>
-                <aside className={`bg-secondary absolute top-0 right-0  h-[90vh] p-4  ${hideAdminPanel ? "opacity-0 " : "opacity-100"} 
+                <aside className={`  absolute top-0 right-0  h-[90vh] p-4  ${hideAdminPanel ? "opacity-0 " : "opacity-100"} 
              transition-all duration-300 ease-in-out
              min-w-[300px] 
             `}>
 
                     <h1
-                        className='text-2xl font-bold text-main  text-responsive mb-4 text-blue-700 capitalize'
+                        className='text-xl font-bold text-main  text-responsive mb-4 text-blue-700 capitalize'
                     >Admin Panel
                     </h1>
                     <span className=" mt-[4px] block bg-primary w-full h-[2px] m-auto "></span>
