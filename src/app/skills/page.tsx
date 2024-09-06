@@ -5,6 +5,8 @@ import DynamicIconSelector from "../components/DynamicIconSelector.js"
 import NoData from "../components/NoData"
 import { FaDeleteLeft } from "react-icons/fa6"
 import { useAppSelector } from "@/store/index.js"
+import { AiFillDelete } from "react-icons/ai"
+import { Button } from "../components/ui/button.jsx"
 
 const Skills = () => {
     const [skills, setSkills] = useState<any[]>([]);
@@ -86,9 +88,9 @@ const Skills = () => {
                                                     </p>
                                                 </div>
                                                 {isAdmin && (
-                                                    <Button onClick={() => handleDeleteSkill(skill._id)}>
+                                                    <div onClick={() => handleDeleteSkill(skill._id)}>
                                                         <AiFillDelete />
-                                                    </Button>
+                                                    </div>
                                                 )}
                                             </div>
                                             <span className=" mt-[4px] block bg-primary w-[90px] h-[2px] m-auto "></span>
