@@ -63,16 +63,22 @@ export async function PUT(request) {
 }
 
 
-export async function DELETE(req) {
+export async function DELETE(request) {
 
     await connectToDatabase();
-
     try {
-        const deletedSkill = await Skills.deleteMany({});
+
+        const { searchParams } = new URL(request.url);
+
+        const id = searchParams.get('id');
+
+        console.log(id)
+
+        const deletedSkill = await Skills.findByIdAndDelete(id);
+
         if (!deletedSkill) {
             return NextResponse.json({ success: false, error: 'Skill not found' });
         }
-        return NextResponse.json({ success: true, data: {} });
     } catch (error) {
         return NextResponse.json({ success: false, error: error.message });
     }

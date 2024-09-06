@@ -42,7 +42,7 @@ const DynamicIconSelector = ({ skillIcon, skillIconLibrary }) => {
                         return;
                 }
 
-                const icon = iconModule[skillIcon];
+                const icon = iconModule[skillIcon.replace(/\s/g, '')];
                 setIconComponent(() => icon); // Set the icon component
 
             } catch (error) {

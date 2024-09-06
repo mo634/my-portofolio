@@ -3,23 +3,48 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import DynamicIconSelector from "../components/DynamicIconSelector.js"
 import NoData from "../components/NoData"
+import { FaDeleteLeft } from "react-icons/fa6"
+import { useAppSelector } from "@/store/index.js"
 
 const Skills = () => {
     const [skills, setSkills] = useState<any[]>([]);
     const [loading, setLoading] = useState(false)
+    const isAdmin = useAppSelector((state) => (state as { admin: { isAdmin: boolean } }).admin.isAdmin);
 
-    const icon = "FaHtml5"
 
-    useEffect(() => {
-        const fetchSkills = async () => {
-            setLoading(true)
+    const handleDeleteSkill = async (id: string) => {
+        console.log("delete clicked", id)
+        try {
+            // Optimistically remove the skill from the state
+            setSkills(prevSkills => prevSkills.filter(skill => skill._id !== id))
+
+            const res = await fetch(`/api/skills?id=${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            const data = await res.json()
+            setSkills(skills.filter((skill) => skill._id !== id))
+        } catch (error) {
+            console.error("Error deleting skill:", error)
+        }
+    }
+
+    const fetchSkills = async () => {
+        setLoading(true)
+        try {
             const res = await fetch('/api/skills')
             const data = await res.json()
             setSkills(data.data)
+        } catch (error) {
+            console.error("Error fetching skills:", error)
+        } finally {
             setLoading(false)
-
         }
+    }
 
+    useEffect(() => {
         fetchSkills()
     }, [])
 
@@ -38,7 +63,7 @@ const Skills = () => {
                             </div>
                         ) : skills?.length === 0 ? (
                             <NoData label="Create Your First Skill"
-                                path="/create-project"
+                                path="/create-skill"
                             />
                         ) :
                             <div
@@ -49,15 +74,22 @@ const Skills = () => {
                                         return <div key={skill._id}
                                             className="min-w-[250px] bg-secondary rounded-md shadow-sm p-2 "
                                         >
-                                            <div className=" flex justify-center  ">
-                                                <DynamicIconSelector skillIcon={skill.skillIcon}
-                                                    skillIconLibrary={skill.skillIconLibrary} />
-                                                <p
-                                                    className="text-blue-700 text-2xl capitalize font-bold  ml-2 "
-                                                >
-                                                    {skill.skillName}
-                                                </p>
+                                            <div className="relative flex justify-between items-center  ">
 
+                                                <div className=" flex items-center justify-center flex-1">
+                                                    <DynamicIconSelector skillIcon={skill.skillIcon}
+                                                        skillIconLibrary={skill.skillIconLibrary} />
+                                                    <p
+                                                        className="text-blue-700 text-2xl capitalize font-bold  ml-2 "
+                                                    >
+                                                        {skill.skillName}
+                                                    </p>
+                                                </div>
+                                                {isAdmin && (
+                                                    <Button onClick={() => handleDeleteSkill(skill._id)}>
+                                                        <AiFillDelete />
+                                                    </Button>
+                                                )}
                                             </div>
                                             <span className=" mt-[4px] block bg-primary w-[90px] h-[2px] m-auto "></span>
 
