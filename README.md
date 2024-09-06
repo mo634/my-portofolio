@@ -1,7 +1,7 @@
-# Patient-Management-System
+# My Portofolio
 
 
-![Project Banner](https://github.com/mo634/Patient-Management-System/blob/main/onboarding.png)
+![Project Banner](https://github.com/mo634/my-portofolio/blob/main/Screenshot%202024-09-06%20182951.png)
 
 ## Table of Contents
 - [Overview](#overview)
