@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import AdminAuth from './components/AdminAuth'
 import { Button } from './components/ui/button'
-import { FaDownload } from "react-icons/fa6";
+import { FaDownload, FaYoutube } from "react-icons/fa6";
 import PersonalImage from "@/../public/images/MyPersonalImage.png"
 import Image from 'next/image'
 import Link from 'next/link'
@@ -47,7 +47,7 @@ const Home = () => {
               </p>
 
             </div>
-            <div className="flex gap-3 items-center justify-center">
+            <div className="flex gap-3 items-center justify-center flex-wrap">
               <Link href={"/files/MYCV.pdf"}
                 target='_blank'
                 rel="noopener noreferrer"
@@ -60,6 +60,15 @@ const Home = () => {
                   Download Resume
                 </Button>
                 <FaDownload className='text-blue-700 max-sm:block hidden mr-2 text-xl hover:text-blue-700 transition duration-500' />
+              </Link>
+
+              <Link href="https://youtu.be/cvFpqPOs5uA" target="_blank" rel="noopener noreferrer">
+                <Button
+                  className='bg-gradient-to-r from-red-600 to-red-800 text-white hover:from-red-700 hover:to-red-900 transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-6 py-3 rounded-full font-bold text-lg'
+                >
+                  <FaYoutube className='mr-2 text-2xl animate-pulse' />
+                  Watch How It Works
+                </Button>
               </Link>
 
               <div className="">
@@ -83,6 +92,7 @@ const Home = () => {
                 }
               </div>
             </div>
+
           </div>
 
           {/* end right side */}
