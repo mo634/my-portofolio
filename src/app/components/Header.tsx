@@ -5,6 +5,7 @@ import HeaderLinkComponent from './HeaderLinkComponent';
 import { FaGithub } from "react-icons/fa";
 import { GrLinkedin } from "react-icons/gr";
 import { MdDarkMode } from "react-icons/md";
+import Link from 'next/link';
 
 
 const Header = () => {
@@ -15,9 +16,13 @@ const Header = () => {
         <TbCircleLetterMFilled className="text-5xl text-blue-700 bg-secondary rounded-full" />
         <HeaderLinkComponent />
         <div className=" flex items-center gap-4">
-          <FaGithub className="cursor-pointer text-2xl text-white transition-transform duration-300 transform hover:scale-125" />
-          <GrLinkedin className="cursor-pointer text-2xl text-white transition-transform duration-300 transform hover:scale-125" />
-          <MdDarkMode className="cursor-pointer text-2xl text-white transition-transform duration-300 transform hover:scale-125" />
+          <Link href="https://github.com/mo634">
+            <FaGithub className="cursor-pointer text-2xl text-white transition-transform duration-300 transform hover:scale-125" />
+          </Link>
+          <Link href="www.linkedin.com/in/mohamed-mostafa-85405a291">
+            <GrLinkedin className="cursor-pointer text-2xl text-white transition-transform duration-300 transform hover:scale-125" />
+          </Link>
+          {/* <MdDarkMode className="cursor-pointer text-2xl text-white transition-transform duration-300 transform hover:scale-125" /> */}
         </div>
       </nav>
     </header>

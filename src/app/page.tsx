@@ -56,7 +56,7 @@ const Home = () => {
                 <Button
                   className='max-sm:hidden bg-secondary text-primary border-2 border-primary hover:bg-transparent hover:opacity-[.8] transition duration-300'
                 >
-                  <FaDownload className='mr-2 text-xl hover:text-blue-700 transition duration-500' />
+                  <FaDownload className=' mr-2 text-xl hover:text-blue-700 transition duration-500' />
                   Download Resume
                 </Button>
                 <FaDownload className='text-blue-700 max-sm:block hidden mr-2 text-xl hover:text-blue-700 transition duration-500' />
@@ -83,8 +83,8 @@ const Home = () => {
                         onClick={() => { setAdminButton(!adminButton) }}
                         className="bg-main bg-primary text-white py-2 px-4 rounded-lg hover:opacity-[.85] transition duration-300"
                       >
-                        Are you admin?
-                        <RiAdminLine className='text-blue-700 max-sm:block hidden text-3xl hover:text-blue-700 transition duration-500' />
+                        <span className='max-sm:hidden'>Are you admin?</span>
+                        <RiAdminLine className='text-white max-sm:block hidden text-3xl hover:text-blue-700 transition duration-500' />
                       </Button>
 
                     </>
