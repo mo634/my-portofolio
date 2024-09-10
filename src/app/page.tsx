@@ -14,15 +14,15 @@ const Home = () => {
   return (
     <>
 
-      <section className='mt-2 px-[40px] max-md:px-0 bg-gray-100 py-2 h-[90vh] w-full flex flex-col items-center justify-center' >
+      <section className='max-md:mt-4 px-[40px] max-md:px-0 py-2  w-full flex flex-col items-center justify-center' >
 
         <p className=" capitalize mt-8 text-4xl font-bold text-responsive mb-10 text-center">
           Welcome to My Portfolio
         </p>
-        <div className="flex max-md:flex-col max-md:w-full max-md:justify-center bg-gradient-to-r from-gray-100 to-gray-300 gap-[50px] items-center p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-500 max-md:transform-none max-md:hover:scale-100">
+        <div className="flex  max-lg:flex-col max-md:w-full max-md:justify-center bg-gradient-to-r from-gray-100 to-gray-300 gap-[50px] items-center p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-500 max-md:transform-none max-md:hover:scale-100">
           <div className="self-center bg-gradient-to-r from-blue-500 to-purple-600 rounded-full shadow-2xl border-4 border-white overflow-hidden transform hover:scale-110 transition-transform duration-500 max-md:transform-none max-md:hover:scale-100">
             <Image
-              className='rounded-full'
+              className='rounded-full '
               alt='My Personal Image'
               src={PersonalImage}
               width={350}
@@ -67,7 +67,7 @@ const Home = () => {
                   className='bg-gradient-to-r from-red-600 to-red-800 text-white hover:from-red-700 hover:to-red-900 transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-6 py-3 rounded-full font-bold text-lg'
                 >
                   <FaYoutube className='mr-2 text-2xl animate-pulse' />
-                  Watch How It Works
+                  <span className='max-sm:hidden'>Watch How It Works</span>
                 </Button>
               </Link>
 

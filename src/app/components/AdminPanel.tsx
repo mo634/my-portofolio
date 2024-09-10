@@ -10,12 +10,10 @@ const AdminPanel = () => {
     const [hideAdminPanel, setHideAdminPanel] = useState(true)
     return (
         isAdmin && (
-            <div className='relative  '>
-                <aside className={`  absolute top-0 right-0  h-[90vh] p-4  ${hideAdminPanel ? "opacity-0 " : "opacity-100"} 
+            <div className='relative mt-5'>
+                <aside className={`absolute bg-secondary top-0 right-0 h-[90vh] p-4 ${hideAdminPanel ? "opacity-0 pointer-events-none" : "opacity-100 z-50"} 
              transition-all duration-300 ease-in-out
-             min-w-[300px] 
-            `}>
-
+             min-w-[300px]`}>
                     <h1
                         className='text-xl font-bold text-main  text-responsive mb-4 text-blue-700 capitalize'
                     >Admin Panel
@@ -24,7 +22,7 @@ const AdminPanel = () => {
 
                     {<AdminOptions />}
                 </aside>
-                <div className="absolute top-1/2  transform -translate-y-1/2 left-[-25px]  cursor-pointer"
+                <div className={`absolute top-1/2 transform -translate-y-1/2 left-[-25px] cursor-pointer ${hideAdminPanel ? '' : 'z-50'}`}
                     onClick={() => setHideAdminPanel(!hideAdminPanel)}
                 >
                     {
@@ -33,8 +31,6 @@ const AdminPanel = () => {
                     }
                 </div>
             </div>
-
-
         )
     )
 }

@@ -11,7 +11,7 @@ function HeaderMobile() {
     const [isMenuClicked, setIsMenuClicked] = useState(false)
 
     return (
-        <header className="  flex justify-between items-center bg-primary text-white p-2 md:hidden">
+        <header className="relative z-10  flex justify-between items-center bg-primary text-white p-2 md:hidden">
             {/* logo */}
             <Link href={"/"}
                 className=""
