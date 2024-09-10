@@ -62,7 +62,7 @@ const Home = () => {
                 <FaDownload className='text-blue-700 max-sm:block hidden mr-2 text-xl hover:text-blue-700 transition duration-500' />
               </Link>
 
-              <Link href="https://youtu.be/cvFpqPOs5uA" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.youtube.com/watch?v=yWULvjbGLmU" target="_blank" rel="noopener noreferrer">
                 <Button
                   className='bg-gradient-to-r from-red-600 to-red-800 text-white hover:from-red-700 hover:to-red-900 transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-6 py-3 rounded-full font-bold text-lg'
                 >
