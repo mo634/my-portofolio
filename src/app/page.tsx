@@ -81,7 +81,7 @@ const Home = () => {
 
                       <Button
                         onClick={() => { setAdminButton(!adminButton) }}
-                        className="max-sm:hidden bg-main bg-primary text-white py-2 px-4 rounded-lg hover:opacity-[.85] transition duration-300"
+                        className="bg-main bg-primary text-white py-2 px-4 rounded-lg hover:opacity-[.85] transition duration-300"
                       >
                         Are you admin?
                         <RiAdminLine className='text-blue-700 max-sm:block hidden text-3xl hover:text-blue-700 transition duration-500' />
