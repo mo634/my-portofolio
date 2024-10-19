@@ -47,8 +47,11 @@ const Project = ({ _id, setProjectsData, title, projectImage, githubLink, descri
         cursor-pointer object-cover w-full max-h-[180px] hover:scale-125 hover:rotate-2 transition-all duration-500"
           src={projectImage}
           alt="Project Image"
+          layout="responsive" // Use responsive layout for better scaling
           width={200}
           height={180}
+          quality={100}
+          priority={true}
         />
       </div>
       {/* end top section */}
